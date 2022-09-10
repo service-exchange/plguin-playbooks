@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "experimentalDecorators": true,
+    "jsx": "react",
+    "baseUrl": ".",
+    "paths": {
+      "src": ["src"],
+      "@service-exchange/types/*": ["node_modules/service-exchange-webapp/packages/types/src/*"],
+      "@service-exchange/client/*": ["node_modules/service-exchange-webapp/packages/client/src/*"],
+      "service-exchange-redux/*": ["node_modules/service-exchange-webapp/packages/service-exchange-redux/src/*"],
+      "reselect": ["node_modules/service-exchange-webapp/packages/reselect/src"]
+    },
+  },
+  "include": [
+    "./**/*"
+  ],
+  "exclude": [
+    "dist",
+    "!node_modules/@types"
+  ],
+}

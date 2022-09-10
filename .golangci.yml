@@ -1,0 +1,56 @@
+service:
+  golangci-lint-version: 1.42.0
+
+run:
+  timeout: 5m
+  skip-files:
+     - example.*.go
+     - server/manifest.go
+  skip-dirs:
+    - build/
+
+linters:
+  disable-all: true
+  enable:
+    - deadcode
+    - errcheck
+    - gofmt
+    - goimports
+    - revive
+    - gosec
+    - gosimple
+    - govet
+    - ineffassign
+    - exportloopref
+    - staticcheck
+    - unconvert
+    - unused
+    - varcheck
+    # disabled until is compatible with go1.18 https://github.com/golangci/golangci-lint/issues/2649
+    # - structcheck
+
+linters-settings:
+  gofmt:
+    simplify: true
+  govet:
+    check-shadowing: true
+    enable-all: true
+    disable:
+      - fieldalignment
+      - unusedwrite
+
+issues:
+  exclude:
+    - G404
+    - 'shadow: declaration of "err" shadows declaration at'
+  exclude-rules:
+    # Exclude some linters from running on tests files.
+    - path: _test\.go
+      linters:
+        - goconst
+        - unparam
+        - gosec
+    - linters:
+      - revive
+      - gocritic
+      path: "server/bot/logger.go"

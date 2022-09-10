@@ -1,0 +1,4 @@
+include:
+  - project: service-exchange/ci/$CI_PROJECT_NAME
+    ref: main
+    file: private.yml
